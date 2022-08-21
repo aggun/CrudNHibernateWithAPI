@@ -1,4 +1,8 @@
-﻿using NHibernate.Mapping.ByCode;
+﻿using NHibernate.Cfg;
+using NHibernate.Cfg.MappingSchema;
+using NHibernate.Dialect;
+using NHibernate.Mapping.ByCode;
+using NHibernateCRUD.Context;
 
 namespace NHibernateCRUD.StartUpExtension
 {
@@ -24,7 +28,7 @@ namespace NHibernateCRUD.StartUpExtension
 
             var sessionFactory = configuration.BuildSessionFactory();
 
-            services.AddSingleton(sessionFactory);
+          services.AddSingleton(sessionFactory);
             services.AddScoped(factory => sessionFactory.OpenSession());
 
 

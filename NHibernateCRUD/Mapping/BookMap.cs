@@ -9,40 +9,35 @@ namespace NHibernateCRUD.Mapping
     {
         public BookMap()
         {
-            Id(x => x.Id, x =>
+            Id(x => x.id, x =>
             {
                 x.Type(NHibernateUtil.Int32);
-                x.Column("Id");
-                x.UnsavedValue(0);
+                x.Column("id");
                 x.Generator(Generators.Increment);
             });
 
-            Property(b => b.Title, x =>
+            Property(b => b.title, x =>
             {
-                x.Length(50);
                 x.Type(NHibernateUtil.String);
                 x.NotNullable(true);
             });
-            Property(b => b.Genre, x =>
+            Property(b => b.genre, x =>
             {
-                x.Length(50);
                 x.Type(NHibernateUtil.String);
                 x.NotNullable(true);
             });
-            Property(b => b.PageCount, x =>
+            Property(b => b.pagecount, x =>
             {
-                x.Length(50);
                 x.Type(NHibernateUtil.Int32);
                 x.NotNullable(true);
             });
-            Property(b => b.Author, x =>
+            Property(b => b.author, x =>
             {
-                x.Length(50);
                 x.Type(NHibernateUtil.String);
                 x.NotNullable(true);
             });
 
-            Table("Book");
+            Table("book");
         }
     }
 }

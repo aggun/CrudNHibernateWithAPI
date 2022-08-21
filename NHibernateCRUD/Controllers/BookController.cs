@@ -27,7 +27,7 @@ namespace NHibernateCRUD.Controllers
         [HttpGet("{id}")]
         public Book Get(int id)
         {
-            Book result = session.Books.Where(x => x.Id == id).FirstOrDefault();
+            Book result = session.Books.Where(x => x.id == id).FirstOrDefault();
             return result;
         }
 
@@ -54,7 +54,7 @@ namespace NHibernateCRUD.Controllers
         [HttpPut]
         public ActionResult<Book> Put([FromBody] Book request)
         {
-            Book book = session.Books.Where(x => x.Id == request.Id).FirstOrDefault();
+            Book book = session.Books.Where(x => x.id == request.id).FirstOrDefault();
             if (book == null)
             {
                 return NotFound();
@@ -64,10 +64,10 @@ namespace NHibernateCRUD.Controllers
             {
                 session.BeginTransaction();
 
-                book.Author = request.Author;
-                book.Title = request.Title;
-                book.Genre = request.Genre;
-                book.PageCount = request.PageCount;
+                book.author = request.author;
+                book.title = request.title;
+                book.genre = request.genre;
+                book.pagecount = request.pagecount;
 
                 session.Update(book);
 
@@ -91,7 +91,7 @@ namespace NHibernateCRUD.Controllers
         [HttpDelete("{id}")]
         public ActionResult<Book> Delete(int id)
         {
-            Book book = session.Books.Where(x => x.Id == id).FirstOrDefault();
+            Book book = session.Books.Where(x => x.id == id).FirstOrDefault();
             if (book == null)
             {
                 return NotFound();
