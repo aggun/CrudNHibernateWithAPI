@@ -112,10 +112,7 @@ namespace NHibernateCRUD.Controllers
             {
                 session.CloseTransaction();
             }
-
             return Ok();
         }
-
-
     }
 }
